@@ -13,32 +13,16 @@ strategy_description = ''
 def move(my_history, their_history, my_score, their_score):    
     #choice = their_history
     
-    if len (their_history) < 5:
-        return "c"
-    elif len (their_history) < 7:
-        return "b"
-    elif len (their_history) == 7:
-        return "c"
-    elif len (their_history) == 8:
-        return "b"
-    elif len (their_history) < 10:
-        return "c"
-    elif len (their_history) < 13:
-        return "b"
-    elif len (their_history) == 14:
-        return"c"
-    elif len (their_history) == 15:
-        return "b"    
-    elif len (their_history) == 16:
-        return "c"
-    elif len (their_history) == 17:
-        return "b"
+    if len(their_history) < 17:
+        return random.choice(["c","b"])                                 
     cs = their_history[-35:-1].count ("c")
     bs = their_history[-35:-1].count ("b")
+    if (their_score) > (my_score):
+        return "f"
     if cs > bs:
-        return "c"
-    else:
         return "b"
+    else:
+        return "c"
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
